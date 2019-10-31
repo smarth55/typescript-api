@@ -35,7 +35,7 @@ class Server {
   
   async run() {
     try {
-      await connect(mongoUrl);
+      await connect(mongoUrl, {useNewUrlParser: true, useUnifiedTopology: true});
       await this.app.listen(port);
       console.log(`Server listening on port ${port}`);
     } catch(err) {
